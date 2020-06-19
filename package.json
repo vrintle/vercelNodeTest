@@ -4,16 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aryan Jabbari <TheWebDevCoach@gmail.com> (https://thewebdevcoach.com)",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
   }
 }
