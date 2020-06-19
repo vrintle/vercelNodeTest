@@ -1,50 +1,41 @@
-<html>
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>Timestamp Microservice</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>Hey there!</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script type="text/javascript" src="/vue.js"></script>
   </head>
   <body>
-    <div>
-      <h1>Timestamp Microservice</h1>
-      <h2>User Stories</h2>
-      <ol>
-        <li>The API endpoint is <code>GET [project_url]/api/timestamp/:date_string?</code></li>
-        <li>
-          A date string is valid if can be successfully parsed by <code>new Date(date_string)</code>.<br />
-          Note that the unix timestamp needs to be an <strong>integer</strong> (not a string) specifying
-          <strong>milliseconds</strong>.<br />
-          In our test we will use date strings compliant with ISO-8601 (e.g. <code>"2016-11-20"</code>) because this
-          will ensure an UTC timestamp.
-        </li>
-        <li>
-          If the date string is <strong>empty</strong> it should be equivalent to trigger <code>new Date()</code>, i.e.
-          the service uses the current timestamp.
-        </li>
-        <li>
-          If the date string is <strong>valid</strong> the api returns a JSON having the structure<br /><code
-            >{"unix": &lt;date.getTime()&gt;, "utc" : &lt;date.toUTCString()&gt; }</code
-          ><br />
-          e.g. <code>{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}</code>
-        </li>
-        <li>
-          If the date string is <strong>invalid</strong> the api returns a JSON having the structure <br />
-          <code>{"unix": null, "utc" : "Invalid Date" }</code>. It is what you get from the date manipulation functions
-          used above.
-        </li>
-      </ol>
-      <h2>Examples</h2>
-      <ul>
-        <li>
-          <a href="/api/timestamp/" target="_blank">/api/timestamp/</a>
-        </li>
-        <li>
-          <a href="/api/timestamp/2015-12-25" target="_blank">/api/timestamp/2015-12-25</a>
-        </li>
-        <li>
-          <a href="/api/timestamp/1450137600" target="_blank">/api/timestamp/1450137600</a>
-        </li>
-        <li><a href="/api/timestamp/garbage" target="_blank">/api/timestamp/garbage</a></li>
-      </ul>
+    <div id='app'>
+      <header>
+        <h1>
+          Get started.
+        </h1>
+      </header><hr>
+
+      <content>
+        <p>Please enter a unique username (3+ chars), and protect it with password (7+ chars).</p><br>
+
+        <form v-on:submit='doAuth' class="welcome-form">
+          <label>Username:</label><br>
+          <input v-model="uname" type="username" placeholder="alphabetical only" pattern="[a-zA-Z]{3,27}" required v-on:input='checkIfExist' readonly onfocus="this.removeAttribute('readonly');" title="Enter alphabetical username"><br><br>
+          <label>Password:</label><br>
+          <input v-model="passW" type="password" placeholder="" pattern=".{7,27}" required readonly onfocus="this.removeAttribute('readonly');"><br><br>
+          <input type="submit" value="Register" name="register" v-if='couldRegister' v-bind:disabled='submitDisabled'>
+          <input type="submit" value="Login" name="login" v-bind:disabled='submitDisabled'>
+        </form><br><hr><br>
+
+        <p class="err">{{ err }}</p>
+      </content>
     </div>
+
+    <script src="/index.js"></script>
   </body>
 </html>
