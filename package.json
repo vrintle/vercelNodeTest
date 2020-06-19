@@ -1,13 +1,14 @@
 {
-  "name": "timestamp-microservice",
+  "name": "ecmabytes",
   "version": "1.0.0",
-  "description": "",
+  "description": "A website to play and give ECMAScript challenges.",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Aryan Jabbari <TheWebDevCoach@gmail.com> (https://thewebdevcoach.com)",
+  "author": "Rahul Verma",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4"
